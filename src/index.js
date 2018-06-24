@@ -2,7 +2,8 @@ var container;
 var camera, scene, renderer;
 
 function init() {
-    container = document.createElement( 'div' );
+    // container = document.createElement( 'div' );
+    container = document.getElementsByName("stadium");
     document.body.appendChild( container );
     // scene
     scene = new THREE.Scene();

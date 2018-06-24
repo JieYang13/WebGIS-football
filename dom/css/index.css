@@ -1,0 +1,489 @@
+
+.indexmap{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+}
+.footballteam{
+    width:10%;
+    height:100%;
+    overflow: hidden;
+    z-index: 0;
+    background: rgb(30, 89, 169);
+    position: absolute;
+}
+.massage{
+    width:65%;
+    height: 12%;
+    right: 25%;
+    overflow: hidden;
+    z-index: 0;
+    background: rgba(84, 119, 163, 1);
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+.stadium{
+    width:65%;
+    height: 78%;
+    right: 25%;
+    top: 12%;
+    overflow: hidden;
+    z-index: 0;
+    background: rgba(84, 119, 163, 1);
+    position: absolute;
+}
+.control{
+    width:65%;
+    height: 10%;
+    right: 25%;
+    top: 90%;
+    overflow: hidden;
+    z-index: 0;
+    background: rgba(84, 119, 163, 1);
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    padding: 10px;
+}
+.detial1{
+    width:25%;
+    height: 100%;
+    left: 75%;
+    overflow: hidden;
+    z-index: 10;
+    /*background: rgb(45, 138, 171);*/
+    position: absolute;
+}
+.countrybutton{
+    width:100%;
+}
+.controlstyle1{
+    width:10%;
+    height:80%;
+    left: 10%;
+    top: 10%;
+    /*background: rgb(244, 252, 36);*/
+    position: absolute;
+    text-align: center;
+}
+.controlstyle2{
+    width:10%;
+    height:80%;
+    left: 24%;
+    top: 10%;
+    /*background: rgb(30, 165, 252);*/
+    position: absolute;
+    text-align: center;
+}
+.controlstyle3{
+    width:10%;
+    height:80%;
+    left: 38%;
+    top: 10%;
+    /*background: rgb(134, 252, 86);*/
+    position: absolute;
+    text-align: center;
+}
+
+.controlstyle4{
+    width:10%;
+    height:80%;
+    left: 52%;
+    top: 10%;
+    /*background: rgb(252, 89, 90);*/
+    position: absolute;
+    text-align: center;
+}
+.controlstyle5{
+    width:10%;
+    height:80%;
+    left: 66%;
+    top: 10%;
+    /*background: rgb(252, 38, 40);*/
+    position: absolute;
+    text-align: center;
+}
+.controlstyle6{
+    width:10%;
+    height:80%;
+    left: 80%;
+    top: 10%;
+    /*background: rgb(48, 252, 32);*/
+    position: absolute;
+    text-align: center;
+}
+/*底部工具样式*/
+.bottomTips{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    z-index: 50;
+    padding: 5px;
+    padding: 10px;
+}
+
+.buttonClose{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+.showType li{
+    display: inline-block;
+    position: relative;
+    margin: 0 5px;
+    border: 1px solid rgba(0,0,0,0);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.showType li span{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    text-indent: 10px;
+    z-index: 100;
+}
+.showType li:hover{
+    border: 1px solid #fff;
+    background: rgba(255,255,255,0.1);
+}
+.showType li img{
+    height: 76px;
+}
+/*右边样式*/
+.rightTips{
+    position: absolute;
+    z-index: 100;
+    top: 10px;
+    right: 10px;
+}
+.rightMenu{
+    margin-top: 8px;
+    margin-right: 20px;
+    color:#fff;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+.rightMenu li{
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    height: 58px;
+    line-height: 58px;
+    width: 58px;
+    cursor: pointer;
+}
+.rightMenu>ul>li:hover{
+    color: #0079C1;
+}
+.menuBox{
+    position: absolute;
+    top: 10px;
+    width: 350px;
+    right: 80px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    display: none;
+}
+.menuBox .tab-pane{
+    margin-top: 20px;
+}
+.rightMenu .active{
+    color: #0079C1;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.boxClose{
+    margin-top: 5px;
+}
+.boxTitle{
+    line-height: 30px
+}
+#rendererDom{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#tooltip {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 5px;
+    background-color: white;
+    opacity: 0.8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+#tooltip.hidden {
+    display: none;
+}
+
+#tooltip p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+#tooltip2 {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    padding: 5px;
+    background-color: white;
+    opacity: 0.8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+#tooltip2.hidden {
+    display: none;
+}
+
+#tooltip2 p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+.city_focus {
+    /*position: relative;*/
+    /*margin-top: 2px;*/
+    width: 1000px;
+    height: 687px;
+    overflow: hidden;
+    z-index:30;
+    position:absolute;
+}
+.stadiumball {
+    /*position: relative;*/
+    /*margin-top: 2px;*/
+    width: 1062px;
+    height: 687px;
+    top:15%;
+    left:18%;
+    overflow: hidden;
+    z-index:10;
+    position:absolute;
+}
+.ballteams{
+    /*position: relative;*/
+    /*margin-top: 2px;*/
+    width: 1062px;
+    height: 687px;
+    overflow: hidden;
+    z-index:20;
+    position:absolute;
+}
+.balldays{
+    width: 1062px;
+    height: 687px;
+    top:15%;
+    left:18%;
+    overflow: hidden;
+    z-index:60;
+    position:absolute;
+}
+.ballmaps{
+    width: 1062px;
+    height: 687px;
+    overflow: hidden;
+    z-index:50;
+    position:absolute;
+}
+.city_focus li {
+    position: absolute;
+    width: 110px;
+    height: 79px;
+    /*background:#eee;*/
+}
+
+.city_focus dl {
+    position: absolute;
+    left: 0;
+    width: 110px;
+    height: 51px;
+    text-align: center;
+    color: white;
+    background: #126abc;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.city_focus_top dl {
+    bottom: 0;
+}
+
+.city_focus_left dl,
+.city_focus_right dl {
+    top: 14px;
+}
+
+.city_focus dl dt {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.city_focus dl dd {}
+
+.city_focus_pic {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 106px;
+    height: 75px;
+    border: 2px solid #126abc;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.city_focus_pic img {
+    border-radius: 5px;
+}
+
+.city_focus_arr {
+    position: absolute;
+    font-size: 30px;
+    color: #126abc;
+    z-index: 1;
+}
+
+.city_focus_top .city_focus_arr {
+    bottom: -24px;
+    left: 47px;
+}
+
+:root .city_focus_top .city_focus_arr {
+    bottom: -22px;
+}
+
+.city_focus_left .city_focus_arr {
+    top: 17px;
+    right: -9px;
+}
+
+.city_focus_right .city_focus_arr {
+    top: 17px;
+    left: -9px;
+}
+
+.city_focus_01 {
+    left: 336px;
+    top: 78px;
+}
+
+.city_focus_02 {
+    left: 700px;
+    top: 97px;
+}
+
+.city_focus_03 {
+    right: 53px;
+    top: 196px;
+}
+
+.city_focus_04 {
+    right: 53px;
+    top: 255px
+}
+
+.city_focus_05 {
+    left: 404px;
+    top: 274px;
+}
+
+.city_focus_06 {
+    left: 521px;
+    top: 293px;
+}
+
+.city_focus_07 {
+    right: 199px;
+    top: 271px;
+}
+
+.city_focus_08 {
+    right: 258px;
+    top: 354px;
+}
+
+.city_focus_09 {
+    right: 354px;
+    bottom: 165px;
+}
+
+.city_focus_10 {
+    left: 449px;
+    bottom: 87px;
+}
+
+.city_focus_11 {
+    right: 205px;
+    bottom: 136px;
+}
+
+.city_focus_12 {
+    left: 403px;
+    bottom: 6px;
+}
+
+.graph1{
+    width:100%;
+    height:32%;
+    overflow: hidden;
+    top:4%;
+    z-index: 0;
+    /*background: rgb(65, 169, 15);*/
+    position: absolute;
+}
+.graph2{
+    width:100%;
+    height:32%;
+    overflow: hidden;
+    top:36%;
+    z-index: 0;
+    background: rgba(255, 255, 255, 0);
+    position: absolute;
+}
+.graph3{
+    width:100%;
+    height:32%;
+    overflow: hidden;
+    top:68%;
+    z-index: 0;
+    /*background: rgb(255, 253, 37);*/
+    position: absolute;
+}
+
+
+
+
+

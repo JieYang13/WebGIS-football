@@ -1,41 +1,408 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>three.js webgl - cloth simulation</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				font-family: Monospace;
-				background-color: #000;
-				color: #000;
-				margin: 0px;
-				overflow: hidden;
-			}
-			#info {
-				position: absolute;
-				padding: 10px;
-				width: 100%;
-				text-align: center;
-			}
-			a {
-				text-decoration: underline;
-				cursor: pointer;
-			}
-		</style>
-	</head>
-	<body>
-		<script src="libs/three.js"></script>
-		<script src="libs/Detector.js"></script>
-		<script src="libs/OrbitControls.js"></script>
-		<script src="libs/stats.min.js"></script>
-		<script src="libs/Cloth.js"></script>
-		<script src="src/index.js"></script>
-		<script src="src/footballfield.js"></script>
-		<script>
-			init();
-            footballfield();
-			animate();
-		</script>
-	</body>
-</html> 
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="dom/css/index.css">
+	<link rel="stylesheet" href="dom/css/style.css">
+	<link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap-treeview.min.css">
+	<link rel="stylesheet" href="dom/bootstrap-3.3.7/css/glyphicons.css">
+	<link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://sports.sina.com.cn/css/756/2014/0228/common.css" />
+	<link rel="stylesheet" href="http://sports.sina.com.cn/css/756/2014/0228/flag.css" />
+	<link rel="stylesheet" href="http://sports.sina.com.cn/css/756/2014/0529/teamGroup.css" />
+	<script charset="utf-8" id="seajsnode" src="http://i2.sinaimg.cn/jslib/modules2/seajs/1.3.0/sea.js"></script>
+	<script charset="gb2312" src="http://news.sina.com.cn/js/modules2/config/lib/config.1.1.x.js"></script>
+	<script src="http://2014.sina.com.cn/js/55/2014/0508/jquery-1.9.1.min.js"></script>
+	<script src="libs/three.js"></script>
+	<script src="libs/Detector.js"></script>
+	<script src="libs/OrbitControls.js"></script>
+	<script src="libs/stats.min.js"></script>
+	<script src="libs/Cloth.js"></script>
+	<script src="src/index.js"></script>
+	<script src="src/footballfield.js"></script>
+	<script src ="src/controlOnClick.js"></script>
+	<script src="libs/d3.min.js"></script>
+	<script src="libs/d3.rollup.v0.min.js"></script>
+	<script src="src/shoot.js"></script>
+	<script src="src/pass.js"></script>
+	<script src="libs/echarts.min.js"></script>
+	<script src="src/control_show.js"></script>
+</head>
+<body>
+<div id ="map" class="indexmap">
+	<div id="team" class="footballteam">
+		<div class ="width:13%;height:4%">
+			<p class="text-center"style="font-weight:bold;font-size:18px;color: #ffffff">National Teams</p> </div>
+		<div class="btn-group-vertical countrybutton">
+			<button type="button" class="btn btn-info btn-block  btn-xs "><img src="dom/flags/Algeria.png" alt="Responsive image" width="17" height="17"><span>Algeria</span></button>
+			<button type="button" class="btn btn-info  btn-xs "><img src="dom/flags/Argentina.png" alt="Responsive image" width="17" height="17">Argentina</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Australia.png" alt="Responsive image" width="17" height="17">Australia</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Belgium.png" alt="Responsive image" width="17" height="17">Belgium</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Bosnia-and-Herzegovina.png" alt="Responsive image" width="17" height="17">Bosna i Hercegovina</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Brazil.png" alt="Responsive image" width="17" height="17">Brazil</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Cameroon.png" alt="Responsive image" width="17" height="17">Cameroon</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Chile.png" alt="Responsive image" width="17" height="17">Chile</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Colombia.png" alt="Responsive image" width="17" height="17">Colombia</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Costa-Rica.png" alt="Responsive image" width="17" height="17">Costa-Rica</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Croatia.png" alt="Responsive image" width="17" height="17">Croatia</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Ecuador.png" alt="Responsive image" width="17" height="17">Ecuador</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/England.png" alt="Responsive image" width="17" height="17">England</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/France.png" alt="Responsive image" width="17" height="17">France</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Germany.png" alt="Responsive image" width="17" height="17">Germany</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Ghana.png" alt="Responsive image" width="17" height="17">Ghana</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Greece.png" alt="Responsive image" width="17" height="17">Greece</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Honduras.png" alt="Responsive image" width="17" height="17">Honduras</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Iran.png" alt="Responsive image" width="17" height="17">Iran</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Italy.png" alt="Responsive image" width="17" height="17">Italy</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Ivory-Coast.png" alt="Responsive image" width="17" height="17">Ivory-Coast</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Japan.png" alt="Responsive image" width="17" height="17">Japan</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Mexico.png" alt="Responsive image" width="17" height="17">Mexico</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Netherlands.png" alt="Responsive image" width="17" height="17">Netherlands</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Nigeria.png" alt="Responsive image" width="17" height="17">Nigeria</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Portugal.png" alt="Responsive image" width="17" height="17">Portugal</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Russia.png" alt="Responsive image" width="17" height="17">Russia</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/South-Korea.png" alt="Responsive image" width="17" height="17">South-Korea</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Spain.png" alt="Responsive image" width="17" height="17">Spain</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Switzerland.png" alt="Responsive image" width="17" height="17">Switzerland</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/Uruguay.png" alt="Responsive image" width="17" height="17">Uruguay</button>
+			<button type="button" class="btn btn-info  btn-xs"><img src="dom/flags/USA.png" alt="Responsive image" width="17" height="17">USA</button>
+		</div>
+	</div>
+	<div id="teammassage" class="massage">
+		<p id ="countryName"class="text-center"style="font-weight:bold;font-size:40px;color: #ffffff">Dong World Cup MAN</p>
+		<p id ="countryGroup"class="text-center"style="font-weight:bold;font-size:15px;color: #ffffff">CAI ZHANG JIE LIU</p>
+	</div>
+	<div id="stadium" class="stadium" >
+		<!--<img src="else/map.png" style="  width: 1062px;height: 605px;">-->
+		<div id = "ball" class ="stadiumball" style="display: none"></div>
+		<div id = "ballteams" class ="ballteams" style="display: none">
+			<div id="wc-map"style="position:absolute;top: 0px;">
+				<div class="wrap" id="wc-map-img">
+					<div id="wc-w1008">
+						<div class="module">
+							<div class="inner">
+								<div class="team-map" style="position:absolute;top: 0px;"data-require="lang=en/worldcup/teams" id="team-map">
+									<ul class="team-groups">
+										<li class="first selected" data-idgroup="0">
+											<span>All teams</span>
+										</li>
+										<li data-idgroup="255933">A</li>
+										<li data-idgroup="255935">B</li>
+										<li data-idgroup="255937">C</li>
+										<li data-idgroup="255939">D</li>
+										<li data-idgroup="255941">E</li>
+										<li data-idgroup="255943">F</li>
+										<li data-idgroup="255945">G</li>
+										<li data-idgroup="255947">H</li>
+									</ul>
+									<a class="map-item" id="BRA" data-idgroup="255933" title="巴西" href="http://2014.sina.com.cn/teams/brazil.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">巴西</span><span class="map-item-webname">巴西</span></a>
+
+									<a class="map-item" id="CRO" data-idgroup="255933" title="克罗地亚" href="http://2014.sina.com.cn/teams/croatia.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">克罗地亚</span><span class="map-item-webname">克罗地亚</span></a>
+
+									<a class="map-item" id="MEX" data-idgroup="255933" title="墨西哥" href="http://2014.sina.com.cn/teams/mexico.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">墨西哥</span><span class="map-item-webname">墨西哥</span></a>
+
+									<a class="map-item" id="CMR" data-idgroup="255933" title="Cameroon" href="http://2014.sina.com.cn/teams/cameroon.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">喀麦隆</span><span class="map-item-webname">喀麦隆</span></a>
+
+									<a class="map-item" id="ESP" data-idgroup="255935" title="西班牙" href="http://2014.sina.com.cn/teams/spain.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">西班牙</span><span class="map-item-webname">西班牙</span></a>
+
+									<a class="map-item" id="NED" data-idgroup="255935" title="荷兰" href="http://2014.sina.com.cn/teams/netherlands.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">荷兰</span><span class="map-item-webname">荷兰</span></a>
+
+									<a class="map-item" id="CHI" data-idgroup="255935" title="智利" href="http://2014.sina.com.cn/teams/chile.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">智利</span><span class="map-item-webname">智利</span></a>
+
+									<a class="map-item" id="AUS" data-idgroup="255935" title="澳大利亚" href="http://2014.sina.com.cn/teams/australia.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">澳大利亚</span><span class="map-item-webname">澳大利亚</span></a>
+
+									<a class="map-item" id="COL" data-idgroup="255937" title="哥伦比亚" href="http://2014.sina.com.cn/teams/colombia.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">哥伦比亚</span><span class="map-item-webname">哥伦比亚</span></a>
+
+									<a class="map-item" id="GRE" data-idgroup="255937" title="希腊" href="http://2014.sina.com.cn/teams/greece.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">希腊</span><span class="map-item-webname">希腊</span></a>
+
+									<a class="map-item" id="CIV" data-idgroup="255937" title="科特迪瓦" href="http://2014.sina.com.cn/teams/cotedivoire.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">科特迪瓦</span><span class="map-item-webname">科特迪瓦</span></a>
+
+									<a class="map-item" id="JPN" data-idgroup="255937" title="日本" href="http://2014.sina.com.cn/teams/japan.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">日本</span><span class="map-item-webname">日本</span></a>
+
+									<a class="map-item" id="URU" data-idgroup="255939" title="乌拉圭" href="http://2014.sina.com.cn/teams/uruguay.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">乌拉圭</span><span class="map-item-webname">乌拉圭</span></a>
+
+									<a class="map-item" id="CRC" data-idgroup="255939" title="哥斯达黎加" href="http://2014.sina.com.cn/teams/costarica.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">哥斯达黎加</span><span class="map-item-webname">哥斯达黎加</span></a>
+
+									<a class="map-item" id="ENG" data-idgroup="255939" title="英格兰" href="http://2014.sina.com.cn/teams/england.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">英格兰</span><span class="map-item-webname">英格兰</span></a>
+
+									<a class="map-item" id="ITA" data-idgroup="255939" title="意大利" href="http://2014.sina.com.cn/teams/italy.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">意大利</span><span class="map-item-webname">意大利</span></a>
+
+									<a class="map-item" id="SUI" data-idgroup="255941" title="瑞士" href="http://2014.sina.com.cn/teams/switzerland.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">瑞士</span><span class="map-item-webname">瑞士</span></a>
+
+									<a class="map-item" id="ECU" data-idgroup="255941" title="厄瓜多尔" href="http://2014.sina.com.cn/teams/ecuador.html"  target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">厄瓜多尔</span><span class="map-item-webname">厄瓜多尔</span></a>
+
+									<a class="map-item" id="FRA" data-idgroup="255941" title="法国" href="http://2014.sina.com.cn/teams/france.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">法国</span><span class="map-item-webname">法国</span></a>
+
+									<a class="map-item" id="HON" data-idgroup="255941" title="洪都拉斯" href="http://2014.sina.com.cn/teams/honduras.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">洪都拉斯</span><span class="map-item-webname">洪都拉斯</span></a>
+
+									<a class="map-item" id="ARG" data-idgroup="255943" title="阿根廷" href="http://2014.sina.com.cn/teams/argentina.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">阿根廷</span><span class="map-item-webname">阿根廷</span></a>
+
+									<a class="map-item" id="BIH" data-idgroup="255943" title="波黑" href="http://2014.sina.com.cn/teams/bosniaherzegovina.html"  target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">波黑</span><span class="map-item-webname">波黑</span></a>
+
+									<a class="map-item" id="IRN" data-idgroup="255943" title="伊朗" href="http://2014.sina.com.cn/teams/iran.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">伊朗</span><span class="map-item-webname">伊朗</span></a>
+
+									<a class="map-item" id="NGA" data-idgroup="255943" title="尼日利亚" href="http://2014.sina.com.cn/teams/nigeria.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">尼日利亚</span><span class="map-item-webname">尼日利亚</span></a>
+
+									<a class="map-item" id="GER" data-idgroup="255945" title="德国" href="http://2014.sina.com.cn/teams/germany.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">德国</span><span class="map-item-webname">德国</span></a>
+
+									<a class="map-item" id="POR" data-idgroup="255945" title="葡萄牙" href="http://2014.sina.com.cn/teams/portugal.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">葡萄牙</span><span class="map-item-webname">葡萄牙</span></a>
+
+									<a class="map-item" id="GHA" data-idgroup="255945" title="加纳" href="http://2014.sina.com.cn/teams/ghana.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">加纳</span><span class="map-item-webname">加纳</span></a>
+
+									<a class="map-item" id="USA" data-idgroup="255945" title="美国" href="http://2014.sina.com.cn/teams/usa.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">美国</span><span class="map-item-webname">美国</span></a>
+
+									<a class="map-item" id="BEL" data-idgroup="255947" title="比利时" href="http://2014.sina.com.cn/teams/belgium.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">比利时</span><span class="map-item-webname">比利时</span></a>
+
+									<a class="map-item" id="ALG" data-idgroup="255947" title="阿尔及利亚" href="http://2014.sina.com.cn/teams/algeria.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">阿尔及利亚</span><span class="map-item-webname">阿尔及利亚</span></a>
+
+									<a class="map-item" id="RUS" data-idgroup="255947" title="俄罗斯" href="http://2014.sina.com.cn/teams/russia.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">俄罗斯</span><span class="map-item-webname">俄罗斯</span></a>
+
+									<a class="map-item" id="KOR" data-idgroup="255947" title="韩国" href="http://2014.sina.com.cn/teams/korearepublic.html" target="_blank"><span class="map-item-icon"> </span><span class="map-item-countrycode">韩国</span><span class="map-item-webname">韩国</span></a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id = "city_focus" class="city_focus" style="display: none">
+			<ul>
+				<li class="city_focus_01 city_focus_top" onmouseover="Show1()" onmouseout="Hider1()">
+					<dl class>
+						<dt>马瑙斯</dt>
+						<dd>亚马逊竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/manaus.html" target="_blank">
+							<img src="http://i2.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105501.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_02 city_focus_top" onmouseover="Show2()" onmouseout="Hider2()">
+					<dl>
+						<dt>福塔莱萨</dt>
+						<dd>卡斯特朗体育场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/fortaleza.html" target="_blank">
+							<img src="http://i0.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105453.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_03 city_focus_right" onmouseover="Show3()" onmouseout="Hider3()">
+					<dl>
+						<dt>纳塔尔</dt>
+						<dd>沙丘体育场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/natal.html" target="_blank">
+							<img src="http://i3.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105502_1.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_04 city_focus_right" onmouseover="Show4()" onmouseout="Hider4()">
+					<dl>
+						<dt>累西腓</dt>
+						<dd>伯南布哥竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/recife.html" target="_blank">
+							<img src="http://i1.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105458.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_05 city_focus_top" onmouseover="Show5()" onmouseout="Hider5()">
+					<dl>
+						<dt>库亚巴</dt>
+						<dd>潘塔纳尔竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/cuiaba.html" target="_blank">
+							<img src="http://i3.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105456.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_06 city_focus_top" onmouseover="Show6()" onmouseout="Hider6()">
+					<dl>
+						<dt>巴西利亚</dt>
+						<dd>国家体育场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/brasilia.html" target="_blank">
+							<img src="http://i3.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105447.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_07 city_focus_top" onmouseover="Show7()" onmouseout="Hider7()">
+					<dl>
+						<dt>萨尔瓦多</dt>
+						<dd>新水源竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/salvador.html" target="_blank">
+							<img src="http://i0.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105507.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_08 city_focus_top" onmouseover="Show8()" onmouseout="Hider8()">
+					<dl>
+						<dt style="font-size:17px; line-height:29px;">贝洛奥里藏特</dt>
+						<dd>米内朗竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/belohorizonte.html" target="_blank">
+							<img src="http://i2.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105451.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_09 city_focus_top" onmouseover="Show9()" onmouseout="Hider9()">
+					<dl>
+						<dt>圣保罗</dt>
+						<dd>圣保罗竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/saopaolo.html" target="_blank">
+							<img src="http://i1.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105504_1.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_10 city_focus_left" onmouseover="Show10()" onmouseout="Hider10()">
+					<dl>
+						<dt>库里奇巴</dt>
+						<dd>拜沙达竞技场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/curitiba.html" target="_blank">
+							<img src="http://i1.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105454_1.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_11 city_focus_right" onmouseover="Show11()" onmouseout="Hider11()">
+					<dl>
+						<dt>里约热内卢</dt>
+						<dd>马拉卡纳体育场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/rio.html" target="_blank">
+							<img src="http://i2.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105459_1.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+				<li class="city_focus_12 city_focus_left" onmouseover="Show12()" onmouseout="Hider12()">
+					<dl>
+						<dt>阿雷格里港</dt>
+						<dd>贝拉里奥体育场</dd>
+					</dl>
+					<div class="city_focus_pic">
+						<a href="http://2014.sina.com.cn/stadiums/portoalegre.html" target="_blank">
+							<img src="http://i1.sinaimg.cn/ty/2013/1204/U5244P6DT20131204105449.jpg" width="106" height="75"
+								 alt="" />
+						</a>
+					</div>
+					<span class="city_focus_arr">◆</span>
+				</li>
+
+			</ul>
+			<img class="city-focus-bg" src="http://i2.sinaimg.cn/ty/2011hqj/20131203/images/img/city_focus_bg.jpg" width="100%" height="100%"
+				 alt="" />
+		</div>
+		<div id = "balldays" class ="balldays" style="display: none">
+			<img src="else/resualt.png">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<img src="else/days.png">
+		</div>
+		<div id = "ballmaps" class ="ballmaps" style="display: none">
+			<img src="else/heatmap.png" style="  width: 1062px;height: 605px;">
+		</div>
+	</div>
+	<div id="control" class="control">
+		<div class = "controlstyle1" id = "shoot" onclick="shootOnClick()">
+			<img src="dom/control/射门进球.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">Shoot</p>
+		</div>
+		<div class = "controlstyle2" id = "pass" onclick="passOnClick()">
+			<img src="dom/control/足球.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">pass</p>
+		</div>
+		<div class = "controlstyle3" id = "teams" onclick="teamsOnClick()">
+			<img src="dom/control/地球.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">Teams</p>
+		</div>
+		<div class = "controlstyle4" id = "venues" onclick="venuesOnClick()">
+			<img src="dom/control/场馆.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">Venues</p>
+		</div>
+		<div class = "controlstyle5" id = "heatmap" onclick="heatmapOnClick()">
+			<img src="dom/control/热点图分析.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">Heat Map</p>
+		</div>
+		<div class = "controlstyle6" id ="days" onclick="daysOnClick()">
+			<img src="dom/control/日期.png" >
+			<p class="text-center"style="font-size:16px;color: #ffffff">Days</p>
+		</div>
+	</div>
+    <div id ="dital" class="detial1">
+		<div class ="width:25%;height:4%">
+			<p class="text-center"style="font-weight:bold;font-size:18px;color: rgb(45, 138, 171)">Statistical Graph</p>
+		</div>
+		<div id="graph1"class="graph1"></div>
+		<div id="graph2"class="graph2"></div>
+		<div id="graph3"class="graph3"></div>
+	</div>
+	<div id="tooltip" class="hidden">
+		<p><strong>球员信息</strong></p>
+		<p>名字: <span id="name">100</span></p>
+		<p>号码: <span id="number">100</span></p>
+		<p>位置: <span id="pos">100</span></p>
+	</div>
+	<div id="tooltip2" class="hidden">
+		<p><strong>球员信息</strong></p>
+		<p>名字: <span id="name2">100</span></p>
+		<p>时间: <span id="minute">100</span>分<span id="second">100</span>秒</p>
+	</div>
+</div>
+<script>
+    seajs.config({
+        alias:{
+            common: "http://sports.sina.com.cn/js/756/2014/0301/common.js",
+            teamGroup: "http://sports.sina.com.cn/js/756/2014/0529/teamGroup.js"
+        }
+    });
+    seajs.use(["common","teamGroup"]);
+    changeGraph1();
+    changeGrap2();
+    changeGrap3();
+</script>
+</body>
+</html>

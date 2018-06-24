@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>宋词地图</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="libs/leaflet.css" />
+    <link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap-treeview.min.css">
+    <link rel="stylesheet" href="dom/bootstrap-3.3.7/css/glyphicons.css">
+    <link rel="stylesheet" href="dom/css/common.css">
+    <link rel="stylesheet" href="dom/css/index.css">
+    <link rel="stylesheet" href="libs/Control.MiniMap.css"/>
+    <link rel="stylesheet" href="libs/leaflet-search.css" />
+    <script src="libs/leaflet.js"></script>
+    <script src="libs/leaflet-tilelayer-wmts-src.js"></script>
+    <script src="dom/js/jquery.min.js"></script>
+    <script src="dom/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="dom/bootstrap-3.3.7/js/bootstrap-treeview.min.js"></script>
+    <script src="dom/js/require.js"></script>
+    <script src="libs/leaflet-echarts.js"></script>
+    <script src="libs/echarts.source.js"></script>
+    <script src="src/loadWMTS.js"></script>
+    <link rel="stylesheet" href="dom/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="src/N-Song.js"></script>
+    <script src="src/S-Song.js"></script>
+    <script src="src/createPopUp.js"></script>
+    <script src="src/addNPoint.js"></script>
+    <script src="src/addSPoint.js"></script>
+    <script src ="src/sudongpo.js"></script>
+    <script src="src/addEmotion.js"></script>
+    <script src="libs/Control.MiniMap.js" type="text/javascript"></script>
+    <script src="libs/leaflet-search.js"></script>
+    <script src="src/addRemoval.js"></script>
+    <script src="src/heatmap.js"></script>
+    <script src ="src/layers.js"></script>
+    <script src="src/search.js"></script>
+    <script src="src/buttonEvent.js"></script>
+</head>
+<body>
+<!--地图右边工具-->
+<div class="rightTips">
+    <div class="rightMenu" id="right_menu">
+        <ul>
+            <li  data-href="dom/view/layers.html">
+                <span title="图层切换"><i class="icon-sort"></i></span>
+            </li>
+            <li data-href="dom/view/point.html">
+                <span title="点图" ><i class="icon-google-maps"></i></span>
+            </li>
+            <li  data-href="dom/view/emotion.html">
+                <span title="分析"><i class="icon-show-big-thumbnails"></i></span>
+            </li>
+            <li data-href="dom/view/trajectory.html">
+                <span title="轨迹"><i class="icon-globe"></i></span>
+            </li>
+            <li data-href="dom/view/mapSet.html">
+                <span title="设置"><i class="icon-cogwheels"></i></span>
+            </li>
+        </ul>
+    </div>
+    <div class="menuBox" id="right_menu_box">
+        <button id="right_close" type="button" class="close boxClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div id="menu_content">
+        </div>
+    </div>
+</div>
+<div id="map" class="mapBox"></div>
+<script>
+    loadWMTS();
+    //页面按钮响应
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        require(["dom/js/index"], function (mapModel) {
+            mapModel.int();
+        });
+    })
+   // addEmotion();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+{"NotGoal": [
+{
+"id": "2",
+"minute": "18",
+"second": "47",
+"player_name": "姆比亚",
+"player_id": "347769",
+"team": "喀麦隆",
+"x": "0.875",
+"y": "0.558"
+},
+{
+"id": "3",
+"minute": "21",
+"second": "51",
+"player_name": "埃托奥",
+"player_id": "348449",
+"team": "喀麦隆",
+"x": "0.894",
+"y": "0.519"
+},
+{
+"id": "4",
+"minute": "24",
+"second": "19",
+"player_name": "切朱",
+"player_id": "395468",
+"team": "喀麦隆",
+"x": "0.875",
+"y": "0.673"
+},
+{
+"id": "6",
+"minute": "45",
+"second": "9",
+"player_name": "恩诺",
+"player_id": "474975",
+"team": "喀麦隆",
+"x": "0.721",
+"y": "0.442"
+},
+{
+"id": "8",
+"minute": "52",
+"second": "39",
+"player_name": "舒波-莫廷",
+"player_id": "397547",
+"team": "喀麦隆",
+"x": "0.894",
+"y": "0.712"
+},
+{
+"id": "9",
+"minute": "58",
+"second": "56",
+"player_name": "阿苏-埃克托",
+"player_id": "346150",
+"team": "喀麦隆",
+"x": "0.760",
+"y": "0.404"
+},
+{
+"id": "10",
+"minute": "59",
+"second": "27",
+"player_name": "切朱",
+"player_id": "395468",
+"team": "喀麦隆",
+"x": "0.894",
+"y": "0.442"
+},
+{
+"id": "16",
+"minute": "80",
+"second": "28",
+"player_name": "埃托奥",
+"player_id": "348449",
+"team": "喀麦隆",
+"x": "0.779",
+"y": "0.635"
+},
+{
+"id": "17",
+"minute": "85",
+"second": "17",
+"player_name": "阿苏-埃克托",
+"player_id": "346150",
+"team": "喀麦隆",
+"x": "0.856",
+"y": "0.712"
+},
+{
+"id": "18",
+"minute": "90",
+"second": "24",
+"player_name": "莫坎约",
+"player_id": "534471",
+"team": "喀麦隆",
+"x": "0.913",
+"y": "0.442"
+}
+],
+"Goal": [
+{
+"id": null,
+"minute": null,
+"second": null,
+"player_name": null,
+"player_id": null,
+"team": null,
+"x": null,
+"y": null
+}
+]
+}

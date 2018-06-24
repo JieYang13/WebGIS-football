@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+        "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1268px" height="808px" viewBox="0 0 1150 720" stroke="white" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter id="f3" x="-0.1" y="-0.1" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceAlpha" dx="3" dy="3" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="2" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+        </filter>
+    </defs>
+
+    <rect x="0" y="0" width="575" height="360" fill="green" />
+    <path d="M 287.5,10 L 25,10 25,350 550,350 550,10 287.5,10 287.5,350 z" stroke="white" stroke-width="1" fill="green" />
+    <circle cx="287.5" cy="180" r="45.75" stroke="white" stroke-width="1" fill-opacity="0" />
+    <circle cx="287.5" cy="180" r="1" stroke="white" fill="white" />
+    <circle cx="80" cy="180" r="1" stroke="white" fill="white" />
+    <circle cx="495" cy="180" r="1" stroke="white" fill="white" />
+    <path d="M 25,162.2 L 20,162.2 20, 198.3 25 198.3 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 550,162.2 L 555,162.2 555,198.3 550,198.3 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 25,134.7 L 52.5,134.7 52.5,225.8 25 225.8 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 550,134.7 L 522.5,134.7 522.5,225.8 550,225.8 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 25,79.7 L 107.5,79.7 107.5,280.8 25 280.8 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 550,79.7 L 467.5,79.7 467.5,280.8 550,280.8 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 0,72 A 45.75,45.75 0 0,0.5 107.5,216.5625 z" stroke="white" stroke-width="1" fill="green" />
+    <path d="M 467.5,143.4375 A 45.75,45.75 0 0,0 467.5,216.5625 z" stroke="white" stroke-width="1" fill="green" />
+    <path d="M 25,15 A 5,5 0 0,0 30,10 L 25,10 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 30,350 A 5,5 0 0,0 25,345 L 25,350 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 550,345 A 5,5 0 0,0 545,350 L 550,350 z" stroke="white" stroke-width="1" fill-opacity="0" />
+    <path d="M 545,10 A 5,5 0 0,0 550,15 L 550,10 z" stroke="white" stroke-width="1" fill-opacity="0" />
+</svg>

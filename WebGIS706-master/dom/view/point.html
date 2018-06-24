@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p class="boxTitle"style="text-align:center;font-size: 20px;">情感值分布</p>
+    <div style="width:330px; height:195px;">
+        <div class="form-group">
+            <p class="col-sm-7 control-label">
+                <select class="form-control" style="padding: 0 2%;" id ="pointtime">
+                    <option style="text-align:center;font-size: 16px;">北宋980-1093</option>
+                    <option style="text-align:center;font-size: 16px;">北宋1094-1127</option>
+                    <option style="text-align:center;font-size: 16px;">南宋1128-1189</option>
+                    <option style="text-align:center;font-size: 16px;">南宋1190-1278</option>
+                </select>
+            </p>
+            <div class="col-sm-5">
+            <button type="button" class="btn btn-success"style="width:145px;right:-5px; position: absolute;" id="pointStart" onclick="pointButtonClick()">效果展示</button>
+            </div>
+        </div>
+        <br><br><br>
+        <div id ="pointColor"style="width:330px; height:120px;visibility:hidden">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-1</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #0206f0">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.8</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #439eee">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.7</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #4fc3ea">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.6</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #53d9f3">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.5</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #48f3ff">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.4</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #7dffec">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">-0.2</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #bbfff3">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">0</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #fff9fb">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">0.2</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #ffcabf">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">0.4</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #ffac9d">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">0.6</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #ff62a7">
+                    </div>
+                    <p class="col-sm-1 control-label" style="font-size: 16px;">1</p>
+                    <div class="col-sm-3">
+                        <input  class="form-control"style="background: #ff1118">
+                    </div>
+                </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

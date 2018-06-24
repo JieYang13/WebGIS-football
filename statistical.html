@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>statistical</title>
+    <script src="libs/echarts.min.js"></script>
+</head>
+<body>
+       <div id="main" style="width: 600px;height: 400px"></div>
+       <script type="text/javascript">
+           var myChart =echarts.init(document.getElementById('main'));
+           var option ={
+               tooltip:{
+                   trigger:'axis',
+                   axisPointer:{
+                       type:'shadow'
+                   }
+               },
+               legend:{
+                   data:['法国','秘鲁']
+               },
+               toolbox:{
+                   show:true,
+                   feature:{
+                       mark:{show:true},
+                       dataView:{show:true,readOnly:false},
+                       magicType:{show:true,type:['line','bar']},
+                       restore:{show:true},
+                       saveAsImage:{show:true}
+                   }
+               },
+               calculable:true,
+               xAxis:[
+                   {
+                       type:'value'
+                   }
+               ],
+               yAxis:[
+                   {
+                       type:'category',
+                       axisTick:{show:false},
+                       data:['控球率','射门','射正','封堵','任意球','角球','越位','犯规','黄牌']
+                   }
+               ],
+               series:[
+                   {
+                       name:'法国',
+                       type:'bar',
+                       stack: '总量',
+                       itemStyle: {normal: {
+                           label : {show: true, position: 'left'}
+                       }},
+                       data:[-43,-11,-5,0,-16,-5,0,-11,-2]
+                   },
+                   {
+                       name:'秘鲁',
+                       type:'bar',
+                       stack: '总量',
+                       barWidth : 5,
+                       itemStyle: {normal: {
+                           label : {show: true,position: 'right'}
+                       }},
+                       data:[57,11, 2, 2, 11, 3,1,15,2]
+                   },
+               ]
+           };
+           myChart.setOption(option);
+       </script>
+</body>
+
+</html>

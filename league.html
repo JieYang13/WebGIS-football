@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>league</title>
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+<div id="main2" style="width: 600px;height: 400px"></div>
+<script type="text/javascript">
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    var option2 = {
+        title:{
+        },
+        tooltip:{
+            trigger:'item'
+        },
+        legend:{
+            orient:'vertical',
+            x:'left',
+            data:['英超','西甲','德甲','意甲']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {
+                    show: true,
+                    type: ['pie', 'funnel'],
+                    option: {
+                        funnel: {
+                            x: '25%',
+                            width: '50%',
+                            funnelAlign: 'center',
+                            max: 1548
+                        }
+                    }
+                },
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculate:true,
+        series:[
+            {
+                name:'四大联赛',
+                type:'pie',
+                radius : ['50%', '70%'],
+                itemStyle : {
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    },
+                    emphasis : {
+                        label : {
+                            show : true,
+                            position : 'center',
+                            textStyle : {
+                                fontSize : '30',
+                                fontWeight : 'bold'
+                            }
+                        }
+                    }
+                },
+                data:[
+                    {value:124, name:'英超'},
+                    {value:81, name:'西甲'},
+                    {value:67, name:'德甲'},
+                    {value:58, name:'意甲'},
+                ]
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+</script>
+</body>
+</html>

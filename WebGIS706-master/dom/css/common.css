@@ -1,0 +1,12 @@
+/**
+ * @author huhuan
+ * @date 2018/3/6
+ * @Description: 通用样式，样式的初始化
+*/
+body,h1,h2,h3,p,ul,li,ol,div{
+    margin: 0;
+    padding: 0;
+}
+ul,ol,li{
+    list-style: none;
+}
